@@ -1,7 +1,15 @@
-Netconf:
-RFC : 6241
+<!DOCTYPE html>
+<html>
+<head>
+<title>Study Notes</title>
+</head>
+<body>
 
-XR:
+<h1>Netconf</h1>
+
+RFC : 6241
+<h2>XR</h2>
+<p>
 show netconf-yang status 
 show netconf-yang capabilities 
 ssh cisco@198.18.10.1 -p 830 -s netconfig
@@ -10,8 +18,9 @@ RP/0/RP0/CPU0:May  9 10:53:44.537 UTC: SSHD_[68828]: %SECURITY-SSHD-3-ERR_GENERA
 RP/0/RP0/CPU0:PE1#RP/0/RP0/CPU0:May  9 11:00:07.396 UTC: SSHD_[69396]: %SECURITY-SSHD-3-ERR_GENERAL : On netconf ssh port  non-netconf subsystem request received 
 show ssh history 
 3        1    XXXXX   0/RP0/CPU0      cisco     198.18.10.100         v2  key-intr       Netconf-Subsystem 
+</p>
+<h2>IOS-XE</h2>  
 
-XE:
 config:
 aaa authorization exec default local 
 netconf-yang
@@ -19,5 +28,10 @@ netconf-yang
 show netconf-yang status 
 ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1
 ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1 -p 830 -s netconf
-ssh cisco@198.18.10.3 -p 830 -s netconf   # different key exchange intersting looks like two different SSH code running ? 
+ssh cisco@198.18.10.3 -p 830 -s netconf   # different key exchange intersting looks like two different SSH code running ? </p>
+
+</body>
+</html>
+
+
 
