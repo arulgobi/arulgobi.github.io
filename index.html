@@ -30,6 +30,35 @@ ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1<br>
 ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1 -p 830 -s netconf<br>
 ssh cisco@198.18.10.3 -p 830 -s netconf   # different key exchange intersting looks like two different SSH code running ? </p>
 
+ <h2>pyang</h2>
+ pip install pyang <br>
+ pyang -f tree --tree-depth 1 ietf-netconf.yang<br>
+ pyang -f tree --tree-path kill-session ietf-netconf.yang <br>
+ 
+ <h2>netconf</h2>
+  NETCONF chunk format framing <br>
+ #<number of bytes going to send > <br>
+ actual content <br>
+ ## ! end sequence two # <br>
+ 
+ <h2>Restconf</h2>
+ RFC 8040<br>
+ 
+ root@yourhostname:/home/ubuntu# curl -i -k -X "GET" "https:/198.18.10.3:443/.well-known/host-meta" -u 'cisco:cisco123' -H 'Accept: application/yang-data+json'
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 09 May 2021 15:45:55 GMT
+Content-Type: application/xrd+xml
+Content-Length: 107
+Connection: keep-alive
+Vary: Accept-Encoding
+
+<XRD xmlns='http://docs.oasis-open.org/ns/xri/xrd-1.0'>
+    <Link rel='restconf' href='/restconf'/>
+</XRD>
+ <br>
+  curl -i -k -X "GET" "https:/198.18.10.3:443/restconf/data/Cisco-IOS-XE-native:native/interface/GigabitEthernet=2 " -u 'cisco:cisco123' -H 'Accept: application/yang-data+json'
+ 
 </body>
 </html>
 
