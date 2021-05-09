@@ -1,1 +1,23 @@
-Hi Everyone
+Netconf:
+RFC : 6241
+
+XR:
+show netconf-yang status 
+show netconf-yang capabilities 
+ssh cisco@198.18.10.1 -p 830 -s netconfig
+subsystem -s netconfig is required to access , otherwise errors will be thrown
+RP/0/RP0/CPU0:May  9 10:53:44.537 UTC: SSHD_[68828]: %SECURITY-SSHD-3-ERR_GENERAL : On netconf port invalid channel request received 
+RP/0/RP0/CPU0:PE1#RP/0/RP0/CPU0:May  9 11:00:07.396 UTC: SSHD_[69396]: %SECURITY-SSHD-3-ERR_GENERAL : On netconf ssh port  non-netconf subsystem request received 
+show ssh history 
+3        1    XXXXX   0/RP0/CPU0      cisco     198.18.10.100         v2  key-intr       Netconf-Subsystem 
+
+XE:
+config:
+aaa authorization exec default local 
+netconf-yang
+
+show netconf-yang status 
+ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1
+ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1 -p 830 -s netconf
+ssh cisco@198.18.10.3 -p 830 -s netconf   # different key exchange intersting looks like two different SSH code running ? 
+
