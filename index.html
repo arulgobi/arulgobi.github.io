@@ -19,6 +19,7 @@ RP/0/RP0/CPU0:PE1#RP/0/RP0/CPU0:May  9 11:00:07.396 UTC: SSHD_[69396]: %SECURITY
 show ssh history <br>
 3        1    XXXXX   0/RP0/CPU0      cisco     198.18.10.100         v2  key-intr       Netconf-Subsystem <br>
 </p>
+<div>
 <h2>IOS-XE</h2>  
 
 config:<br>
@@ -29,7 +30,7 @@ show netconf-yang status <br>
 ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1<br>
 ssh cisco@198.18.10.3 -oKexAlgorithms=+diffie-hellman-group14-sha1 -p 830 -s netconf<br>
 ssh cisco@198.18.10.3 -p 830 -s netconf   # different key exchange intersting looks like two different SSH code running ? </p>
-
+</div>
  <h2>pyang</h2>
  pip install pyang <br>
  pyang -f tree --tree-depth 1 ietf-netconf.yang<br>
